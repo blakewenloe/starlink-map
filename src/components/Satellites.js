@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Marker, Popup } from "react-leaflet";
-import SatIcon from "./satellite.png";
+import SatIcon from "../assets/satellite.png";
 import L from "leaflet";
 
 const satIcon = L.icon({
@@ -11,7 +11,7 @@ const satIcon = L.icon({
   popupAnchor: [-3, -76],
 });
 
-export default function Satellites() {
+const Satellites = () => {
   const [satellites, setData] = useState();
 
   useEffect(() => {
@@ -44,5 +44,6 @@ export default function Satellites() {
         );
       })
     : "Map is loading...";
-  return satellites;
-}
+};
+
+export default Satellites;

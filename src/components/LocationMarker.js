@@ -2,14 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
 
-export default function LocationMarker() {
+const LocationMarker = () => {
   const [position, setPosition] = useState(null);
   const [bbox, setBbox] = useState([]);
 
   const map = useMap();
 
   useEffect(() => {
-    map.locate().on("locationfound", function (e) {
+    map.locate();
+    map.on("locationfound", function (e) {
       setPosition(e.latlng);
       map.flyTo(e.latlng, 8);
       const radius = e.accuracy;
@@ -24,4 +25,6 @@ export default function LocationMarker() {
       <Popup>You are here.</Popup>
     </Marker>
   );
-}
+};
+
+export default LocationMarker;

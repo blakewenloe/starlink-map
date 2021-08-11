@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import React from "react";
+import { MapContainer, TileLayer } from "react-leaflet";
 import LocationMarker from "./LocationMarker";
 import Satellites from "./Satellites";
 
-export default function Map(props) {
+const Map = () => {
   return (
     <MapContainer
       center={[0, 0]}
@@ -18,4 +18,6 @@ export default function Map(props) {
       <LocationMarker />
     </MapContainer>
   );
-}
+};
+
+export default Map;
