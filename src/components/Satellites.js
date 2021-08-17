@@ -16,10 +16,8 @@ const Satellites = () => {
 
   useEffect(() => {
     const updateLocations = async () => {
-      const API_URL = process.env.REACT_APP_API_URL;
-      const response = await axios(
-        `${API_URL}satellites/above-me/30.626945/-96.334334`
-      );
+      const API_URL = process.env.REACT_APP_BASE_URL;
+      const response = await axios(`${API_URL}30.626945/-96.334334`);
       return setData(response.data);
     };
     updateLocations();
